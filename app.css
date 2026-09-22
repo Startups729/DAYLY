@@ -1,0 +1,705 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #08080d;
+    color: white;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.app {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* SIDEBAR */
+
+.sidebar {
+    width: 240px;
+    background: #0e0e16;
+    border-right: 1px solid #20202c;
+    padding: 30px 18px;
+    position: fixed;
+    height: 100vh;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 900;
+    margin-bottom: 45px;
+    padding-left: 10px;
+}
+
+.logo span {
+    color: #9b5cff;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.nav-btn {
+    border: 0;
+    background: transparent;
+    color: #888896;
+    padding: 14px;
+    text-align: left;
+    border-radius: 12px;
+    transition: .2s;
+}
+
+.nav-btn:hover {
+    background: #191923;
+    color: white;
+}
+
+.nav-btn.active {
+    background: #9b5cff;
+    color: white;
+}
+
+.back-home {
+    position: absolute;
+    bottom: 30px;
+    left: 28px;
+    color: #777784;
+    text-decoration: none;
+}
+
+
+/* MAIN */
+
+.main {
+    margin-left: 240px;
+    width: calc(100% - 240px);
+    padding: 55px;
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+
+/* HEADERS */
+
+.date,
+.page-title p {
+    color: #9b5cff;
+    font-weight: bold;
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+h1 {
+    font-size: 48px;
+    margin: 10px 0;
+}
+
+.subtitle,
+.page-title span {
+    color: #8c8c99;
+}
+
+
+/* QUICK ACTIONS */
+
+.quick-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin: 45px 0;
+}
+
+.quick-card {
+    background: #11111a;
+    border: 1px solid #242432;
+    color: white;
+    padding: 25px;
+    border-radius: 18px;
+    text-align: left;
+    transition: .2s;
+}
+
+.quick-card:hover {
+    transform: translateY(-4px);
+    border-color: #9b5cff;
+    background: #171722;
+}
+
+.quick-card span {
+    display: block;
+    font-size: 30px;
+    margin-bottom: 18px;
+}
+
+.quick-card strong {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.quick-card small {
+    color: #858592;
+}
+
+
+/* CARDS */
+
+.section-card,
+.planner-box,
+.tool-card {
+    background: #11111a;
+    border: 1px solid #242432;
+    border-radius: 20px;
+    padding: 30px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section-header h2 {
+    margin-bottom: 6px;
+}
+
+.section-header p {
+    color: #777784;
+}
+
+.progress {
+    width: 180px;
+    height: 8px;
+    background: #242432;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#progressBar {
+    height: 100%;
+    width: 0%;
+    background: #9b5cff;
+}
+
+
+/* SCHEDULE */
+
+#schedule {
+    margin-top: 25px;
+}
+
+.empty {
+    text-align: center;
+    padding: 50px;
+    color: #777784;
+}
+
+.empty div {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 18px;
+    border-bottom: 1px solid #242432;
+}
+
+.task:last-child {
+    border-bottom: 0;
+}
+
+.task input {
+    width: 20px;
+    height: 20px;
+    accent-color: #9b5cff;
+}
+
+.task-info {
+    flex: 1;
+}
+
+.task-time {
+    color: #9b5cff;
+    font-size: 13px;
+    margin-bottom: 4px;
+}
+
+.task.completed .task-name {
+    text-decoration: line-through;
+    color: #666672;
+}
+
+
+/* PLANNER */
+
+.page-title {
+    margin-bottom: 40px;
+}
+
+.page-title h1 {
+    font-size: 52px;
+}
+
+.planner-box label {
+    display: block;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+textarea {
+    width: 100%;
+    min-height: 280px;
+    background: #09090f;
+    border: 1px solid #292938;
+    color: white;
+    padding: 20px;
+    border-radius: 14px;
+    resize: vertical;
+    outline: none;
+}
+
+textarea:focus,
+input:focus {
+    border-color: #9b5cff;
+}
+
+
+/* BUTTON */
+
+.primary-btn {
+    background: #9b5cff;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 14px 22px;
+    margin-top: 18px;
+    font-weight: bold;
+}
+
+.primary-btn:hover {
+    background: #8645eb;
+}
+
+
+/* GOALS */
+
+.goal-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+input {
+    background: #09090f;
+    color: white;
+    border: 1px solid #292938;
+    border-radius: 12px;
+    padding: 14px;
+    outline: none;
+}
+
+.goal-input input {
+    flex: 1;
+}
+
+.goal {
+    background: #11111a;
+    border: 1px solid #242432;
+    padding: 18px;
+    border-radius: 14px;
+    margin-bottom: 10px;
+}
+
+
+/* TOOLS */
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.tool-card h2 {
+    margin-bottom: 20px;
+}
+
+.tool-card input {
+    width: 100%;
+}
+
+#calculatorResult,
+#decisionResult {
+    margin-top: 20px;
+    color: #9b5cff;
+    font-weight: bold;
+}
+
+
+/* MODAL */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.75);
+    backdrop-filter: blur(8px);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    width: min(600px, 90%);
+    max-height: 80vh;
+    overflow-y: auto;
+    background: #11111a;
+    border: 1px solid #292938;
+    border-radius: 22px;
+    padding: 35px;
+    position: relative;
+}
+
+.modal-content h2 {
+    margin: 10px 0 20px;
+    font-size: 30px;
+}
+
+#modalIcon {
+    font-size: 40px;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 18px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 30px;
+}
+
+.idea {
+    padding: 15px;
+    border-bottom: 1px solid #242432;
+}
+
+.idea:last-child {
+    border-bottom: none;
+}
+
+.meal {
+    padding: 18px;
+    background: #181821;
+    border-radius: 14px;
+    margin-bottom: 10px;
+}
+
+.meal strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.meal small {
+    color: #858592;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+
+    .sidebar {
+        width: 190px;
+    }
+
+    .main {
+        margin-left: 190px;
+        width: calc(100% - 190px);
+        padding: 30px;
+    }
+
+    .quick-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+@media (max-width: 650px) {
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .app {
+        display: block;
+    }
+
+    .main {
+        margin-left: 0;
+        width: 100%;
+        padding: 25px;
+    }
+
+    .quick-grid,
+    .tools-grid {
+        grid-template-columns: 1fr;
+    }
+
+    h1,
+    .page-title h1 {
+        font-size: 36px;
+    }
+
+    .goal-input {
+        flex-direction: column;
+    }
+}
+/* COPY TEMPLATE BUTTON */
+
+.copy-template-btn {
+    width: 100%;
+    margin-top: 12px;
+    padding: 15px;
+
+    background: #181821 !important;
+    color: white;
+
+    border: none;
+    border-radius: 12px;
+
+    font-weight: bold;
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.copy-template-btn:hover {
+    background: #20202b !important;
+}
+
+.copy-template-btn.copied {
+    background: #6f42c1 !important;
+}
+/* =========================
+   DAYLY TIMERS
+========================= */
+
+.timer-modal-content {
+    max-width: 650px;
+}
+
+.timer-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.timer-big-icon {
+    font-size: 45px;
+    margin-bottom: 5px;
+}
+
+.timer-title h2 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.timer-title p {
+    color: #9999a8;
+    margin-top: 8px;
+}
+
+/* Create Timer */
+
+.timer-create {
+    background: #11111a;
+    border: 1px solid #242432;
+    border-radius: 14px;
+    padding: 16px;
+}
+
+.timer-create > input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px;
+    margin-bottom: 14px;
+
+    background: #181821;
+    color: white;
+
+    border: 1px solid #292938;
+    border-radius: 10px;
+
+    outline: none;
+}
+
+.timer-create input:focus {
+    border-color: #9b5cff;
+}
+
+.timer-input-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.timer-input-row div {
+    display: flex;
+    flex-direction: column;
+}
+
+.timer-input-row label {
+    color: #9999a8;
+    font-size: 12px;
+    margin-bottom: 6px;
+}
+
+.timer-input-row input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+
+    background: #181821;
+    color: white;
+
+    border: 1px solid #292938;
+    border-radius: 10px;
+
+    outline: none;
+}
+
+/* Timer list */
+
+.timer-list {
+    margin-top: 15px;
+}
+
+.timer-card {
+    background: #11111a;
+    border: 1px solid #242432;
+    border-radius: 14px;
+    padding: 16px;
+    margin-bottom: 12px;
+}
+
+.timer-card.finished {
+    border-color: #6f42c1;
+}
+
+.timer-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.timer-name {
+    color: white;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.timer-time {
+    text-align: center;
+    font-size: 38px;
+    font-weight: bold;
+    margin: 18px 0;
+
+    color: white;
+    font-variant-numeric: tabular-nums;
+}
+
+.timer-status {
+    text-align: center;
+    color: #9999a8;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.timer-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.timer-action-btn,
+.timer-delete-btn {
+    padding: 11px 14px;
+
+    background: #181821;
+    color: white;
+
+    border: 1px solid #292938;
+    border-radius: 9px;
+
+    cursor: pointer;
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+.timer-action-btn {
+    flex: 1;
+}
+
+.timer-action-btn:hover,
+.timer-delete-btn:hover {
+    background: #20202b;
+    border-color: #9b5cff;
+}
+
+.no-timers {
+    text-align: center;
+    padding: 30px 10px;
+    color: #777784;
+}
+
+.no-timers h3 {
+    color: white;
+    margin: 8px 0;
+}
+
+.no-timers p {
+    margin: 0;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .timer-input-row {
+        grid-template-columns: 1fr;
+    }
+
+    .timer-buttons {
+        flex-direction: column;
+    }
+
+}

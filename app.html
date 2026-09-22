@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAYLY — Your Personal Day Planner</title>
+    <link rel="stylesheet" href="app.css">
+</head>
+
+<body>
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAYLY — Your Personal Day Planner</title>
+    <link rel="stylesheet" href="app.css">
+</head>
+
+<body>
+
+    
+
+    <div class="app">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="logo">DAYLY<span>.</span></div>
+
+            <nav>
+                <button class="nav-btn active" data-page="dashboard">
+                    🏠 Dashboard
+                </button>
+
+                <button class="nav-btn" data-page="planner">
+                    📅 Fix My Day
+                </button>
+
+                <button class="nav-btn" data-page="goals">
+                    🎯 Goals
+                </button>
+
+                <button class="nav-btn" data-page="tools">
+                    🧰 Tools
+                </button>
+            </nav>
+
+            <a href="index.html" class="back-home">
+                ← Back Home
+            </a>
+        </aside>
+
+
+        <!-- MAIN -->
+        <main class="main">
+
+            <!-- DASHBOARD -->
+            <section id="dashboard" class="page active">
+
+                <div class="top">
+                    <div>
+                        <p class="date" id="currentDate"></p>
+                        <h1>Let's fix your day.</h1>
+                        <p class="subtitle">
+                            Tell DAYLY what you need to do and we'll organize it.
+                        </p>
+                    </div>
+                </div>
+
+
+                <!-- QUICK ACTIONS -->
+                <div class="quick-grid">
+
+                    <button class="quick-card" id="fixDayBtn">
+                        <span>📅</span>
+                        <strong>Fix My Day</strong>
+                        <small>Build a plan around your day</small>
+                    </button>
+
+                    <button class="quick-card" id="ideasBtn">
+                        <span>💡</span>
+                        <strong>Give Me Ideas</strong>
+                        <small>Ideas based on the current time</small>
+                    </button>
+
+                    <button class="quick-card" id="foodBtn">
+                        <span>🍳</span>
+                        <strong>What Should I Eat?</strong>
+                        <small>Healthy high-protein ideas</small>
+                    </button>
+
+                    <button class="quick-card" id="writeBtn">
+                        <span>✍️</span>
+                        <strong>Write Something</strong>
+                        <small>Get something written quickly</small>
+                    </button>
+
+                </div>
+
+
+                <!-- TODAY -->
+                <div class="section-card">
+
+                    <div class="section-header">
+                        <div>
+                            <h2>Today's Plan</h2>
+                            <p id="progressText">0 tasks completed</p>
+                        </div>
+
+                        <div class="progress">
+                            <div id="progressBar"></div>
+                        </div>
+                    </div>
+
+                    <div id="schedule">
+                        <div class="empty">
+                            <div>📅</div>
+                            <h3>Your day is empty</h3>
+                            <p>Click "Fix My Day" to create a plan.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- PLANNER -->
+            <section id="planner" class="page">
+
+                <div class="page-title">
+                    <p>DAYLY PLANNER</p>
+                    <h1>Fix My Day.</h1>
+                    <span>
+                        Tell me everything you need to do.
+                    </span>
+                </div>
+
+                <div class="planner-box">
+
+                    <label for="dayInput">
+                        What's going on today?
+                    </label>
+
+                    <textarea
+                        id="dayInput"
+                        placeholder="Example:
+
+I have school at 8 AM
+I need to do 2 hours of homework
+I have basketball at 7 PM
+I need to clean my room
+I haven't eaten dinner yet"
+                    ></textarea>
+
+                    <button id="createDayBtn" class="primary-btn">
+                        ✨ Fix My Day
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- GOALS -->
+            <section id="goals" class="page">
+
+                <div class="page-title">
+                    <p>YOUR GOALS</p>
+                    <h1>Become better every day.</h1>
+                </div>
+
+                <div class="goal-input">
+                    <input
+                        id="goalInput"
+                        type="text"
+                        placeholder="Add a goal..."
+                    >
+
+                    <button id="addGoalBtn" class="primary-btn">
+                        Add Goal
+                    </button>
+                </div>
+
+                <div id="goalList" class="goal-list"></div>
+
+            </section>
+
+
+            <!-- TOOLS -->
+            <section id="tools" class="page">
+
+                <div class="page-title">
+                    <p>TOOLS</p>
+                    <h1>Useful stuff.</h1>
+                </div>
+
+                <div class="tools-grid">
+
+                    <div class="tool-card">
+                        <h2>🧮 Calculator</h2>
+
+                        <input
+                            id="calculatorInput"
+                            placeholder="Example: 25 + 50"
+                        >
+
+                        <button id="calculateBtn" class="primary-btn">
+                            Calculate
+                        </button>
+
+                        <div id="calculatorResult"></div>
+                    </div>
+
+
+                    <div class="tool-card">
+                        <h2>🤔 Decision Maker</h2>
+
+                        <input
+                            id="decisionInput"
+                            placeholder="Pizza or burgers?"
+                        >
+
+                        <button id="decideBtn" class="primary-btn">
+                            Decide
+                        </button>
+
+                        <div id="decisionResult"></div>
+                    </div>
+
+
+                    <!-- TIMERS -->
+                    <div class="tool-card">
+                        <h2>⏱️ Timers</h2>
+
+                        <p>
+                            Create and manage multiple timers.
+                        </p>
+
+                        <button id="openTimersBtn" class="primary-btn">
+                            Open Timers
+                        </button>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- MAIN MODAL -->
+    <div id="modal" class="modal">
+
+        <div class="modal-content">
+
+            <button id="closeModal" class="close">
+                ×
+            </button>
+
+            <div id="modalIcon"></div>
+
+            <h2 id="modalTitle"></h2>
+
+            <div id="modalBody"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- TIMER MODAL -->
+    <div id="timerModal" class="modal">
+
+        <div class="modal-content timer-modal-content">
+
+            <button id="closeTimersBtn" class="close">
+                ×
+            </button>
+
+            <div class="timer-title">
+                <div class="timer-big-icon">⏱️</div>
+
+                <h2>Timers</h2>
+
+                <p>
+                    Create multiple timers and run them at the same time.
+                </p>
+            </div>
+
+
+            <!-- CREATE TIMER -->
+
+            <div class="timer-create">
+
+                <input
+                    id="timerName"
+                    type="text"
+                    placeholder="Timer name (optional)"
+                >
+
+                <div class="timer-input-row">
+
+                    <div>
+                        <label>Hours</label>
+
+                        <input
+                            id="timerHours"
+                            type="number"
+                            min="0"
+                            value="0"
+                        >
+                    </div>
+
+                    <div>
+                        <label>Minutes</label>
+
+                        <input
+                            id="timerMinutes"
+                            type="number"
+                            min="0"
+                            value="5"
+                        >
+                    </div>
+
+                    <div>
+                        <label>Seconds</label>
+
+                        <input
+                            id="timerSeconds"
+                            type="number"
+                            min="0"
+                            value="0"
+                        >
+                    </div>
+
+                </div>
+
+                <button id="createTimerBtn" class="primary-btn">
+                    + Create Timer
+                </button>
+
+            </div>
+
+
+            <!-- TIMER LIST -->
+
+            <div class="timer-list" id="timerList">
+
+                <div class="no-timers">
+                    ⏱️
+                    <h3>No timers yet</h3>
+                    <p>Create a timer above to get started.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="app.js"></script>
+
+</body>
+</html>
+
+    <div class="app">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="logo">DAYLY<span>.</span></div>
+
+            <nav>
+                <button class="nav-btn active" data-page="dashboard">
+                    🏠 Dashboard
+                </button>
+
+                <button class="nav-btn" data-page="planner">
+                    📅 Fix My Day
+                </button>
+
+                <button class="nav-btn" data-page="goals">
+                    🎯 Goals
+                </button>
+
+                <button class="nav-btn" data-page="tools">
+                    🧰 Tools
+                </button>
+            </nav>
+
+            <a href="index.html" class="back-home">
+                ← Back Home
+            </a>
+        </aside>
+
+
+        <!-- MAIN -->
+        <main class="main">
+
+            <!-- DASHBOARD -->
+            <section id="dashboard" class="page active">
+
+                <div class="top">
+                    <div>
+                        <p class="date" id="currentDate"></p>
+                        <h1>Let's fix your day.</h1>
+                        <p class="subtitle">
+                            Tell DAYLY what you need to do and we'll organize it.
+                        </p>
+                    </div>
+                </div>
+
+
+                <!-- QUICK ACTIONS -->
+                <div class="quick-grid">
+
+                    <button class="quick-card" id="fixDayBtn">
+                        <span>📅</span>
+                        <strong>Fix My Day</strong>
+                        <small>Build a plan around your day</small>
+                    </button>
+
+                    <button class="quick-card" id="ideasBtn">
+                        <span>💡</span>
+                        <strong>Give Me Ideas</strong>
+                        <small>Ideas based on the current time</small>
+                    </button>
+
+                    <button class="quick-card" id="foodBtn">
+                        <span>🍳</span>
+                        <strong>What Should I Eat?</strong>
+                        <small>Healthy high-protein ideas</small>
+                    </button>
+
+                    <button class="quick-card" id="writeBtn">
+                        <span>✍️</span>
+                        <strong>Write Something</strong>
+                        <small>Get something written quickly</small>
+                    </button>
+
+                </div>
+
+
+                <!-- TODAY -->
+                <div class="section-card">
+
+                    <div class="section-header">
+                        <div>
+                            <h2>Today's Plan</h2>
+                            <p id="progressText">0 tasks completed</p>
+                        </div>
+
+                        <div class="progress">
+                            <div id="progressBar"></div>
+                        </div>
+                    </div>
+
+                    <div id="schedule">
+                        <div class="empty">
+                            <div>📅</div>
+                            <h3>Your day is empty</h3>
+                            <p>Click "Fix My Day" to create a plan.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- PLANNER -->
+            <section id="planner" class="page">
+
+                <div class="page-title">
+                    <p>DAYLY PLANNER</p>
+                    <h1>Fix My Day.</h1>
+                    <span>
+                        Tell me everything you need to do.
+                    </span>
+                </div>
+
+                <div class="planner-box">
+
+                    <label for="dayInput">
+                        What's going on today?
+                    </label>
+
+                    <textarea
+                        id="dayInput"
+                        placeholder="Example:
+
+I have school at 8 AM
+I need to do 2 hours of homework
+I have basketball at 7 PM
+I need to clean my room
+I haven't eaten dinner yet"
+                    ></textarea>
+
+                    <button id="createDayBtn" class="primary-btn">
+                        ✨ Fix My Day
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- GOALS -->
+            <section id="goals" class="page">
+
+                <div class="page-title">
+                    <p>YOUR GOALS</p>
+                    <h1>Become better every day.</h1>
+                </div>
+
+                <div class="goal-input">
+                    <input
+                        id="goalInput"
+                        type="text"
+                        placeholder="Add a goal..."
+                    >
+
+                    <button id="addGoalBtn" class="primary-btn">
+                        Add Goal
+                    </button>
+                </div>
+
+                <div id="goalList" class="goal-list"></div>
+
+            </section>
+
+
+            <!-- TOOLS -->
+            <section id="tools" class="page">
+
+                <div class="page-title">
+                    <p>TOOLS</p>
+                    <h1>Useful stuff.</h1>
+                </div>
+
+                <div class="tools-grid">
+
+                    <div class="tool-card">
+                        <h2>🧮 Calculator</h2>
+
+                        <input
+                            id="calculatorInput"
+                            placeholder="Example: 25 + 50"
+                        >
+
+                        <button id="calculateBtn" class="primary-btn">
+                            Calculate
+                        </button>
+
+                        <div id="calculatorResult"></div>
+                    </div>
+
+
+                    <div class="tool-card">
+                        <h2>🤔 Decision Maker</h2>
+
+                        <input
+                            id="decisionInput"
+                            placeholder="Pizza or burgers?"
+                        >
+
+                        <button id="decideBtn" class="primary-btn">
+                            Decide
+                        </button>
+
+                        <div id="decisionResult"></div>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- MODAL -->
+    <div id="modal" class="modal">
+
+        <div class="modal-content">
+
+            <button id="closeModal" class="close">
+                ×
+            </button>
+
+            <div id="modalIcon"></div>
+
+            <h2 id="modalTitle"></h2>
+
+            <div id="modalBody"></div>
+
+        </div>
+
+    </div>
+
+
+    <script src="app.js"></script>
+
+</body>
+</html>
